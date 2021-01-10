@@ -67,13 +67,13 @@ namespace datingStuff
             this.link_requirBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.meetingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.meeting_viewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.meeting_viewTableAdapter = new datingStuff.dating_stuffDataSetTableAdapters.meeting_viewTableAdapter();
             this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.person_viewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.person_viewTableAdapter = new datingStuff.dating_stuffDataSetTableAdapters.person_viewTableAdapter();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.meeting_viewTableAdapter = new datingStuff.dating_stuffDataSetTableAdapters.meeting_viewTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dating_stuffDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.archive_personBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.archive_personBindingNavigator)).BeginInit();
@@ -166,7 +166,7 @@ namespace datingStuff
             this.archive_personBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.archive_personBindingNavigator.Name = "archive_personBindingNavigator";
             this.archive_personBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.archive_personBindingNavigator.Size = new System.Drawing.Size(828, 25);
+            this.archive_personBindingNavigator.Size = new System.Drawing.Size(885, 25);
             this.archive_personBindingNavigator.TabIndex = 0;
             this.archive_personBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -348,10 +348,6 @@ namespace datingStuff
             this.meeting_viewBindingSource.DataMember = "meeting_view";
             this.meeting_viewBindingSource.DataSource = this.dating_stuffDataSet;
             // 
-            // meeting_viewTableAdapter
-            // 
-            this.meeting_viewTableAdapter.ClearBeforeFill = true;
-            // 
             // personBindingSource
             // 
             this.personBindingSource.DataMember = "person";
@@ -399,11 +395,15 @@ namespace datingStuff
             this.panel1.Size = new System.Drawing.Size(684, 308);
             this.panel1.TabIndex = 5;
             // 
+            // meeting_viewTableAdapter
+            // 
+            this.meeting_viewTableAdapter.ClearBeforeFill = true;
+            // 
             // Sources
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(828, 432);
+            this.ClientSize = new System.Drawing.Size(885, 342);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
@@ -468,7 +468,6 @@ namespace datingStuff
         private dating_stuffDataSetTableAdapters.meetingTableAdapter meetingTableAdapter;
         private System.Windows.Forms.BindingSource meetingBindingSource;
         private System.Windows.Forms.BindingSource meeting_viewBindingSource;
-        private dating_stuffDataSetTableAdapters.meeting_viewTableAdapter meeting_viewTableAdapter;
         private dating_stuffDataSetTableAdapters.personTableAdapter personTableAdapter;
         private System.Windows.Forms.BindingSource personBindingSource;
         private System.Windows.Forms.BindingSource person_viewBindingSource;
@@ -476,5 +475,6 @@ namespace datingStuff
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
+        private dating_stuffDataSetTableAdapters.meeting_viewTableAdapter meeting_viewTableAdapter;
     }
 }

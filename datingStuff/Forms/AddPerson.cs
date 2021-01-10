@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Dapper;
@@ -64,6 +57,7 @@ namespace datingStuff
             }
         }
 
+
         private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBox7.Enabled = true;
@@ -75,31 +69,47 @@ namespace datingStuff
             }
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Вы уверены, что хотите добавить человека?", "Предупреждение", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
-
+            
             using (var conn = new MySqlConnection (Data.connString)) {
-                conn.Query (
-                    $"insert into person(firstname, lastname, sex, phone, reg_date) values ('{textBox1.Text}', '{textBox2.Text}', {(comboBox1.Text == "Мужской" ? 1 : 0)}, {textBox4.Text}, '{DateTime.Now.ToString ("yyyy-MM-dd hh:mm:ss")}')");
+                var isExist = conn.Query <string> ($"select id from archive_person where phone = {textBox4.Text}").Count();
 
-                var id = conn.QueryFirst <string> ($"select id from person where phone = {textBox4.Text}");
+                if (isExist == 0) {
+                    conn.Query(
+                        $"insert into person(firstname, lastname, sex, phone, reg_date) values ('{textBox1.Text}', '{textBox2.Text}', {(comboBox1.Text == "Мужской" ? 1 : 0)}, {textBox4.Text}, '{DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")}')");
 
-                foreach (var combobox in groupBox2.Controls.OfType<ComboBox>()) {
-                    var char_id = conn.Query ($"select char_id from characteristics where name = '{combobox.Text}'");
+                    var id = conn.QueryFirst<string>($"select id from person where phone = {textBox4.Text}");
 
-                    conn.Query ($"insert into link_char values ({id}, {char_id})");
+                    foreach (var combobox in groupBox2.Controls.OfType<ComboBox>())
+                    {
+                        var char_id = conn.QueryFirst<string>($"select char_id from characteristics where name = '{combobox.Text}'");
+
+                        conn.Query($"insert into link_char values ({id}, {char_id})");
+                    }
+
+                    foreach (var combobox in groupBox3.Controls.OfType<ComboBox>())
+                    {
+                        var char_id = conn.QueryFirst<string>($"select char_id from characteristics where name = '{combobox.Text}'");
+
+                        conn.Query($"insert into link_requir values ({id}, {char_id})");
+                    }
+
+                } else {
+                    try {
+                        conn.Query(
+                            $"insert into person(firstname, lastname, sex, phone, reg_date) select archive_person.firstname, archive_person.lastname, archive_person.sex, archive_person.phone, archive_person.reg_date from archive_person where archive_person.phone = {textBox4.Text}");
+                    }
+                    catch {
+                        MessageBox.Show ("Уже существует");
+                    }
+                    
                 }
 
-                foreach (var combobox in groupBox3.Controls.OfType<ComboBox>())
-                {
-                    var char_id = conn.Query($"select char_id from characteristics where name = '{combobox.Text}'");
-
-                    conn.Query($"insert into link_requir values ({id}, {char_id})");
-                }
-
-                MessageBox.Show ("Добавлено");
+                MessageBox.Show("Добавлено");
             }
         }
     }

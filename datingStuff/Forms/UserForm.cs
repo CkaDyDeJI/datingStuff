@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Dapper;
@@ -52,22 +47,23 @@ namespace datingStuff
         {
             while (true)
             {
-                user = Interaction.InputBox("Укажите ваш ID (паспорт)");
+                user = Interaction.InputBox("Укажите ваш номер телефона");
 
                 if (user != "")
                 {
                     using (var conn = new MySqlConnection(Data.connString))
                     {
-                        if (!conn.Query<int>($"select count(fio) from jobless where passport = {user}").Any())
+                        if (conn.Query<string>($"select count(*) from person where phone = {user}").Count() == 1)
                         {
                             MessageBox.Show("Человек не найден");
 
                             continue;
                         }
 
-                        label1.Text = conn.QueryFirst<string>($"select fio from jobless where passport = {user}");
+                        var userid = conn.QueryFirst <string> ($"select id from person where phone = {user}");
+                        label1.Text = conn.QueryFirst<string>($"select concat_ws(' ', firstname, lastname) from person where id = {userid}");
 
-                        var command = new MySqlCommand($"select comp_pos_view.* from comp_pos_view join proposition on proposition.position_id = comp_pos_view.id join jobless on jobless.passport = proposition.person_id where jobless.passport = {user}");
+                        var command = new MySqlCommand($"select meeting_view.* from meeting_view where id = any(select meeting_id from meeting where firstperson_id = {userid} or secondperson_id = {userid})");
                         command.Connection = conn;
 
                         var adapter = new MySqlDataAdapter(command);
@@ -90,6 +86,35 @@ namespace datingStuff
                         opener.Dispose();
                     }
                 }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (var conn = new MySqlConnection(Data.connString)) {
+                if (MessageBox.Show("Вы точно хотите удалить встречу?", "Предупреждение", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    conn.Query ($"delete from meeting where meeting_id = {dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value}");
+
+                dataGridView1.Rows.Remove(dataGridView1.SelectedCells[0].OwningRow);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedCells.Count == 0)
+                return;
+
+            var meetingid = dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value.ToString();
+            using (var conn = new MySqlConnection (Data.connString)) {
+                var fpid = conn.QueryFirst <string> ($"select firstperson_id from meeting where meeting_id = {meetingid}");
+                var spid = conn.QueryFirst<string>($"select secondperson_id from meeting where meeting_id = {meetingid}");
+
+                conn.Query ($"insert into link_archive values ({fpid}, {spid}, '{DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")}')");
+                conn.Query($"delete from meeting where meeting.meeting_id = {meetingid}");
+                conn.Query ($"delete from person where id = {fpid} or id = {spid}");
+
+                MessageBox.Show ("Пара создана");
+                //dataGridView1.Rows.Clear();
             }
         }
     }

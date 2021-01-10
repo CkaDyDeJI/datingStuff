@@ -324,25 +324,6 @@
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="meeting_viewTableAdapter" GeneratorDataComponentClassName="meeting_viewTableAdapter" Name="meeting_view" UserDataComponentName="meeting_viewTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="dating_stuffConnectionString (Settings)" DbObjectName="dating_stuff.meeting_view" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT `first_person`, `second_person`, `place`, `datetime` FROM `dating_stuff`.`meeting_view`</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="first_person" DataSetColumn="first_person" />
-              <Mapping SourceColumn="second_person" DataSetColumn="second_person" />
-              <Mapping SourceColumn="place" DataSetColumn="place" />
-              <Mapping SourceColumn="datetime" DataSetColumn="datetime" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="person_viewTableAdapter" GeneratorDataComponentClassName="person_viewTableAdapter" Name="person_view" UserDataComponentName="person_viewTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="dating_stuffConnectionString (Settings)" DbObjectName="dating_stuff.person_view" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -366,6 +347,26 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="meeting_viewTableAdapter" GeneratorDataComponentClassName="meeting_viewTableAdapter" Name="meeting_view" UserDataComponentName="meeting_viewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dating_stuffConnectionString (Settings)" DbObjectName="dating_stuff.meeting_view" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `id`, `first_person`, `second_person`, `place`, `datetime` FROM `dating_stuff`.`meeting_view`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="first_person" DataSetColumn="first_person" />
+              <Mapping SourceColumn="second_person" DataSetColumn="second_person" />
+              <Mapping SourceColumn="place" DataSetColumn="place" />
+              <Mapping SourceColumn="datetime" DataSetColumn="datetime" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -374,7 +375,7 @@
   <xs:element name="dating_stuffDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dating_stuffDataSet" msprop:Generator_UserDSName="dating_stuffDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="archive_person" msprop:Generator_TableClassName="archive_personDataTable" msprop:Generator_TableVarName="tablearchive_person" msprop:Generator_TablePropName="archive_person" msprop:Generator_RowDeletingName="archive_personRowDeleting" msprop:Generator_RowChangingName="archive_personRowChanging" msprop:Generator_RowEvHandlerName="archive_personRowChangeEventHandler" msprop:Generator_RowDeletedName="archive_personRowDeleted" msprop:Generator_UserTableName="archive_person" msprop:Generator_RowChangedName="archive_personRowChanged" msprop:Generator_RowEvArgName="archive_personRowChangeEvent" msprop:Generator_RowClassName="archive_personRow">
+        <xs:element name="archive_person" msprop:Generator_TableClassName="archive_personDataTable" msprop:Generator_TableVarName="tablearchive_person" msprop:Generator_RowChangedName="archive_personRowChanged" msprop:Generator_TablePropName="archive_person" msprop:Generator_RowDeletingName="archive_personRowDeleting" msprop:Generator_RowChangingName="archive_personRowChanging" msprop:Generator_RowEvHandlerName="archive_personRowChangeEventHandler" msprop:Generator_RowDeletedName="archive_personRowDeleted" msprop:Generator_RowClassName="archive_personRow" msprop:Generator_UserTableName="archive_person" msprop:Generator_RowEvArgName="archive_personRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -404,7 +405,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="characteristics" msprop:Generator_TableClassName="characteristicsDataTable" msprop:Generator_TableVarName="tablecharacteristics" msprop:Generator_TablePropName="characteristics" msprop:Generator_RowDeletingName="characteristicsRowDeleting" msprop:Generator_RowChangingName="characteristicsRowChanging" msprop:Generator_RowEvHandlerName="characteristicsRowChangeEventHandler" msprop:Generator_RowDeletedName="characteristicsRowDeleted" msprop:Generator_UserTableName="characteristics" msprop:Generator_RowChangedName="characteristicsRowChanged" msprop:Generator_RowEvArgName="characteristicsRowChangeEvent" msprop:Generator_RowClassName="characteristicsRow">
+        <xs:element name="characteristics" msprop:Generator_TableClassName="characteristicsDataTable" msprop:Generator_TableVarName="tablecharacteristics" msprop:Generator_RowChangedName="characteristicsRowChanged" msprop:Generator_TablePropName="characteristics" msprop:Generator_RowDeletingName="characteristicsRowDeleting" msprop:Generator_RowChangingName="characteristicsRowChanging" msprop:Generator_RowEvHandlerName="characteristicsRowChangeEventHandler" msprop:Generator_RowDeletedName="characteristicsRowDeleted" msprop:Generator_RowClassName="characteristicsRow" msprop:Generator_UserTableName="characteristics" msprop:Generator_RowEvArgName="characteristicsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="char_id" msprop:Generator_ColumnVarNameInTable="columnchar_id" msprop:Generator_ColumnPropNameInRow="char_id" msprop:Generator_ColumnPropNameInTable="char_idColumn" msprop:Generator_UserColumnName="char_id" type="xs:int" />
@@ -418,7 +419,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="link_archive" msprop:Generator_TableClassName="link_archiveDataTable" msprop:Generator_TableVarName="tablelink_archive" msprop:Generator_TablePropName="link_archive" msprop:Generator_RowDeletingName="link_archiveRowDeleting" msprop:Generator_RowChangingName="link_archiveRowChanging" msprop:Generator_RowEvHandlerName="link_archiveRowChangeEventHandler" msprop:Generator_RowDeletedName="link_archiveRowDeleted" msprop:Generator_UserTableName="link_archive" msprop:Generator_RowChangedName="link_archiveRowChanged" msprop:Generator_RowEvArgName="link_archiveRowChangeEvent" msprop:Generator_RowClassName="link_archiveRow">
+        <xs:element name="link_archive" msprop:Generator_TableClassName="link_archiveDataTable" msprop:Generator_TableVarName="tablelink_archive" msprop:Generator_RowChangedName="link_archiveRowChanged" msprop:Generator_TablePropName="link_archive" msprop:Generator_RowDeletingName="link_archiveRowDeleting" msprop:Generator_RowChangingName="link_archiveRowChanging" msprop:Generator_RowEvHandlerName="link_archiveRowChangeEventHandler" msprop:Generator_RowDeletedName="link_archiveRowDeleted" msprop:Generator_RowClassName="link_archiveRow" msprop:Generator_UserTableName="link_archive" msprop:Generator_RowEvArgName="link_archiveRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="firstP_id" msprop:Generator_ColumnVarNameInTable="columnfirstP_id" msprop:Generator_ColumnPropNameInRow="firstP_id" msprop:Generator_ColumnPropNameInTable="firstP_idColumn" msprop:Generator_UserColumnName="firstP_id" type="xs:int" />
@@ -426,7 +427,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="link_char" msprop:Generator_TableClassName="link_charDataTable" msprop:Generator_TableVarName="tablelink_char" msprop:Generator_TablePropName="link_char" msprop:Generator_RowDeletingName="link_charRowDeleting" msprop:Generator_RowChangingName="link_charRowChanging" msprop:Generator_RowEvHandlerName="link_charRowChangeEventHandler" msprop:Generator_RowDeletedName="link_charRowDeleted" msprop:Generator_UserTableName="link_char" msprop:Generator_RowChangedName="link_charRowChanged" msprop:Generator_RowEvArgName="link_charRowChangeEvent" msprop:Generator_RowClassName="link_charRow">
+        <xs:element name="link_char" msprop:Generator_TableClassName="link_charDataTable" msprop:Generator_TableVarName="tablelink_char" msprop:Generator_RowChangedName="link_charRowChanged" msprop:Generator_TablePropName="link_char" msprop:Generator_RowDeletingName="link_charRowDeleting" msprop:Generator_RowChangingName="link_charRowChanging" msprop:Generator_RowEvHandlerName="link_charRowChangeEventHandler" msprop:Generator_RowDeletedName="link_charRowDeleted" msprop:Generator_RowClassName="link_charRow" msprop:Generator_UserTableName="link_char" msprop:Generator_RowEvArgName="link_charRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="person_id" msprop:Generator_ColumnVarNameInTable="columnperson_id" msprop:Generator_ColumnPropNameInRow="person_id" msprop:Generator_ColumnPropNameInTable="person_idColumn" msprop:Generator_UserColumnName="person_id" type="xs:int" />
@@ -434,7 +435,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="link_requir" msprop:Generator_TableClassName="link_requirDataTable" msprop:Generator_TableVarName="tablelink_requir" msprop:Generator_TablePropName="link_requir" msprop:Generator_RowDeletingName="link_requirRowDeleting" msprop:Generator_RowChangingName="link_requirRowChanging" msprop:Generator_RowEvHandlerName="link_requirRowChangeEventHandler" msprop:Generator_RowDeletedName="link_requirRowDeleted" msprop:Generator_UserTableName="link_requir" msprop:Generator_RowChangedName="link_requirRowChanged" msprop:Generator_RowEvArgName="link_requirRowChangeEvent" msprop:Generator_RowClassName="link_requirRow">
+        <xs:element name="link_requir" msprop:Generator_TableClassName="link_requirDataTable" msprop:Generator_TableVarName="tablelink_requir" msprop:Generator_RowChangedName="link_requirRowChanged" msprop:Generator_TablePropName="link_requir" msprop:Generator_RowDeletingName="link_requirRowDeleting" msprop:Generator_RowChangingName="link_requirRowChanging" msprop:Generator_RowEvHandlerName="link_requirRowChangeEventHandler" msprop:Generator_RowDeletedName="link_requirRowDeleted" msprop:Generator_RowClassName="link_requirRow" msprop:Generator_UserTableName="link_requir" msprop:Generator_RowEvArgName="link_requirRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="person_id" msprop:Generator_ColumnVarNameInTable="columnperson_id" msprop:Generator_ColumnPropNameInRow="person_id" msprop:Generator_ColumnPropNameInTable="person_idColumn" msprop:Generator_UserColumnName="person_id" type="xs:int" />
@@ -442,7 +443,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="meeting" msprop:Generator_TableClassName="meetingDataTable" msprop:Generator_TableVarName="tablemeeting" msprop:Generator_TablePropName="meeting" msprop:Generator_RowDeletingName="meetingRowDeleting" msprop:Generator_RowChangingName="meetingRowChanging" msprop:Generator_RowEvHandlerName="meetingRowChangeEventHandler" msprop:Generator_RowDeletedName="meetingRowDeleted" msprop:Generator_UserTableName="meeting" msprop:Generator_RowChangedName="meetingRowChanged" msprop:Generator_RowEvArgName="meetingRowChangeEvent" msprop:Generator_RowClassName="meetingRow">
+        <xs:element name="meeting" msprop:Generator_TableClassName="meetingDataTable" msprop:Generator_TableVarName="tablemeeting" msprop:Generator_RowChangedName="meetingRowChanged" msprop:Generator_TablePropName="meeting" msprop:Generator_RowDeletingName="meetingRowDeleting" msprop:Generator_RowChangingName="meetingRowChanging" msprop:Generator_RowEvHandlerName="meetingRowChangeEventHandler" msprop:Generator_RowDeletedName="meetingRowDeleted" msprop:Generator_RowClassName="meetingRow" msprop:Generator_UserTableName="meeting" msprop:Generator_RowEvArgName="meetingRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="meeting_id" msprop:Generator_ColumnVarNameInTable="columnmeeting_id" msprop:Generator_ColumnPropNameInRow="meeting_id" msprop:Generator_ColumnPropNameInTable="meeting_idColumn" msprop:Generator_UserColumnName="meeting_id" type="xs:int" />
@@ -459,7 +460,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="person" msprop:Generator_TableClassName="personDataTable" msprop:Generator_TableVarName="tableperson" msprop:Generator_TablePropName="person" msprop:Generator_RowDeletingName="personRowDeleting" msprop:Generator_RowChangingName="personRowChanging" msprop:Generator_RowEvHandlerName="personRowChangeEventHandler" msprop:Generator_RowDeletedName="personRowDeleted" msprop:Generator_UserTableName="person" msprop:Generator_RowChangedName="personRowChanged" msprop:Generator_RowEvArgName="personRowChangeEvent" msprop:Generator_RowClassName="personRow">
+        <xs:element name="person" msprop:Generator_TableClassName="personDataTable" msprop:Generator_TableVarName="tableperson" msprop:Generator_RowChangedName="personRowChanged" msprop:Generator_TablePropName="person" msprop:Generator_RowDeletingName="personRowDeleting" msprop:Generator_RowChangingName="personRowChanging" msprop:Generator_RowEvHandlerName="personRowChangeEventHandler" msprop:Generator_RowDeletedName="personRowDeleted" msprop:Generator_RowClassName="personRow" msprop:Generator_UserTableName="person" msprop:Generator_RowEvArgName="personRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -489,23 +490,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="meeting_view" msprop:Generator_TableClassName="meeting_viewDataTable" msprop:Generator_TableVarName="tablemeeting_view" msprop:Generator_TablePropName="meeting_view" msprop:Generator_RowDeletingName="meeting_viewRowDeleting" msprop:Generator_RowChangingName="meeting_viewRowChanging" msprop:Generator_RowEvHandlerName="meeting_viewRowChangeEventHandler" msprop:Generator_RowDeletedName="meeting_viewRowDeleted" msprop:Generator_UserTableName="meeting_view" msprop:Generator_RowChangedName="meeting_viewRowChanged" msprop:Generator_RowEvArgName="meeting_viewRowChangeEvent" msprop:Generator_RowClassName="meeting_viewRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="first_person" msprop:Generator_ColumnVarNameInTable="columnfirst_person" msprop:Generator_ColumnPropNameInRow="first_person" msprop:Generator_ColumnPropNameInTable="first_personColumn" msprop:Generator_UserColumnName="first_person" type="xs:long" />
-              <xs:element name="second_person" msprop:Generator_ColumnVarNameInTable="columnsecond_person" msprop:Generator_ColumnPropNameInRow="second_person" msprop:Generator_ColumnPropNameInTable="second_personColumn" msprop:Generator_UserColumnName="second_person" type="xs:long" />
-              <xs:element name="place" msprop:Generator_ColumnVarNameInTable="columnplace" msprop:Generator_ColumnPropNameInRow="place" msprop:Generator_ColumnPropNameInTable="placeColumn" msprop:Generator_UserColumnName="place">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="45" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="datetime" msprop:Generator_ColumnVarNameInTable="columndatetime" msprop:Generator_ColumnPropNameInRow="datetime" msprop:Generator_ColumnPropNameInTable="datetimeColumn" msprop:Generator_UserColumnName="datetime" type="xs:dateTime" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="person_view" msprop:Generator_TableClassName="person_viewDataTable" msprop:Generator_TableVarName="tableperson_view" msprop:Generator_TablePropName="person_view" msprop:Generator_RowDeletingName="person_viewRowDeleting" msprop:Generator_RowChangingName="person_viewRowChanging" msprop:Generator_RowEvHandlerName="person_viewRowChangeEventHandler" msprop:Generator_RowDeletedName="person_viewRowDeleted" msprop:Generator_UserTableName="person_view" msprop:Generator_RowChangedName="person_viewRowChanged" msprop:Generator_RowEvArgName="person_viewRowChangeEvent" msprop:Generator_RowClassName="person_viewRow">
+        <xs:element name="person_view" msprop:Generator_TableClassName="person_viewDataTable" msprop:Generator_TableVarName="tableperson_view" msprop:Generator_RowChangedName="person_viewRowChanged" msprop:Generator_TablePropName="person_view" msprop:Generator_RowDeletingName="person_viewRowDeleting" msprop:Generator_RowChangingName="person_viewRowChanging" msprop:Generator_RowEvHandlerName="person_viewRowChangeEventHandler" msprop:Generator_RowDeletedName="person_viewRowDeleted" msprop:Generator_RowClassName="person_viewRow" msprop:Generator_UserTableName="person_view" msprop:Generator_RowEvArgName="person_viewRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -555,6 +540,35 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="meeting_view" msprop:Generator_TableClassName="meeting_viewDataTable" msprop:Generator_TableVarName="tablemeeting_view" msprop:Generator_TablePropName="meeting_view" msprop:Generator_RowDeletingName="meeting_viewRowDeleting" msprop:Generator_RowChangingName="meeting_viewRowChanging" msprop:Generator_RowEvHandlerName="meeting_viewRowChangeEventHandler" msprop:Generator_RowDeletedName="meeting_viewRowDeleted" msprop:Generator_UserTableName="meeting_view" msprop:Generator_RowChangedName="meeting_viewRowChanged" msprop:Generator_RowEvArgName="meeting_viewRowChangeEvent" msprop:Generator_RowClassName="meeting_viewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="first_person" msprop:Generator_ColumnVarNameInTable="columnfirst_person" msprop:Generator_ColumnPropNameInRow="first_person" msprop:Generator_ColumnPropNameInTable="first_personColumn" msprop:Generator_UserColumnName="first_person" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="91" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="second_person" msprop:Generator_ColumnVarNameInTable="columnsecond_person" msprop:Generator_ColumnPropNameInRow="second_person" msprop:Generator_ColumnPropNameInTable="second_personColumn" msprop:Generator_UserColumnName="second_person" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="91" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="place" msprop:Generator_ColumnVarNameInTable="columnplace" msprop:Generator_ColumnPropNameInRow="place" msprop:Generator_ColumnPropNameInTable="placeColumn" msprop:Generator_UserColumnName="place">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="datetime" msprop:Generator_ColumnVarNameInTable="columndatetime" msprop:Generator_ColumnPropNameInRow="datetime" msprop:Generator_ColumnPropNameInTable="datetimeColumn" msprop:Generator_UserColumnName="datetime" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -573,17 +587,21 @@
       <xs:selector xpath=".//mstns:person" />
       <xs:field xpath="mstns:id" />
     </xs:unique>
+    <xs:unique name="meeting_view_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:meeting_view" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="archive1_fk" msdata:parent="archive_person" msdata:child="link_archive" msdata:parentkey="id" msdata:childkey="firstP_id" msprop:Generator_UserChildTable="link_archive" msprop:Generator_ChildPropName="Getlink_archiveRowsByarchive1_fk" msprop:Generator_UserRelationName="archive1_fk" msprop:Generator_ParentPropName="archive_personRowByarchive1_fk" msprop:Generator_RelationVarName="relationarchive1_fk" msprop:Generator_UserParentTable="archive_person" />
-      <msdata:Relationship name="archive2_fk" msdata:parent="archive_person" msdata:child="link_archive" msdata:parentkey="id" msdata:childkey="secondP_id" msprop:Generator_UserChildTable="link_archive" msprop:Generator_ChildPropName="Getlink_archiveRowsByarchive2_fk" msprop:Generator_UserRelationName="archive2_fk" msprop:Generator_ParentPropName="archive_personRowByarchive2_fk" msprop:Generator_RelationVarName="relationarchive2_fk" msprop:Generator_UserParentTable="archive_person" />
-      <msdata:Relationship name="char_fk" msdata:parent="characteristics" msdata:child="link_char" msdata:parentkey="char_id" msdata:childkey="char_id" msprop:Generator_UserChildTable="link_char" msprop:Generator_ChildPropName="Getlink_charRows" msprop:Generator_UserRelationName="char_fk" msprop:Generator_ParentPropName="characteristicsRow" msprop:Generator_RelationVarName="relationchar_fk" msprop:Generator_UserParentTable="characteristics" />
-      <msdata:Relationship name="person_fk" msdata:parent="archive_person" msdata:child="link_char" msdata:parentkey="id" msdata:childkey="person_id" msprop:Generator_UserChildTable="link_char" msprop:Generator_ChildPropName="Getlink_charRows" msprop:Generator_UserRelationName="person_fk" msprop:Generator_ParentPropName="archive_personRow" msprop:Generator_RelationVarName="relationperson_fk" msprop:Generator_UserParentTable="archive_person" />
-      <msdata:Relationship name="person_req_fk" msdata:parent="archive_person" msdata:child="link_requir" msdata:parentkey="id" msdata:childkey="person_id" msprop:Generator_UserChildTable="link_requir" msprop:Generator_ChildPropName="Getlink_requirRows" msprop:Generator_UserRelationName="person_req_fk" msprop:Generator_ParentPropName="archive_personRow" msprop:Generator_RelationVarName="relationperson_req_fk" msprop:Generator_UserParentTable="archive_person" />
-      <msdata:Relationship name="req_fk" msdata:parent="characteristics" msdata:child="link_requir" msdata:parentkey="char_id" msdata:childkey="req_id" msprop:Generator_UserChildTable="link_requir" msprop:Generator_ChildPropName="Getlink_requirRows" msprop:Generator_UserRelationName="req_fk" msprop:Generator_ParentPropName="characteristicsRow" msprop:Generator_RelationVarName="relationreq_fk" msprop:Generator_UserParentTable="characteristics" />
-      <msdata:Relationship name="firstP_fk" msdata:parent="person" msdata:child="meeting" msdata:parentkey="id" msdata:childkey="firstperson_id" msprop:Generator_UserChildTable="meeting" msprop:Generator_ChildPropName="GetmeetingRowsByfirstP_fk" msprop:Generator_UserRelationName="firstP_fk" msprop:Generator_RelationVarName="relationfirstP_fk" msprop:Generator_UserParentTable="person" msprop:Generator_ParentPropName="personRowByfirstP_fk" />
-      <msdata:Relationship name="secondP_fk" msdata:parent="person" msdata:child="meeting" msdata:parentkey="id" msdata:childkey="secondperson_id" msprop:Generator_UserChildTable="meeting" msprop:Generator_ChildPropName="GetmeetingRowsBysecondP_fk" msprop:Generator_UserRelationName="secondP_fk" msprop:Generator_RelationVarName="relationsecondP_fk" msprop:Generator_UserParentTable="person" msprop:Generator_ParentPropName="personRowBysecondP_fk" />
+      <msdata:Relationship name="archive1_fk" msdata:parent="archive_person" msdata:child="link_archive" msdata:parentkey="id" msdata:childkey="firstP_id" msprop:Generator_UserChildTable="link_archive" msprop:Generator_ChildPropName="Getlink_archiveRowsByarchive1_fk" msprop:Generator_UserRelationName="archive1_fk" msprop:Generator_RelationVarName="relationarchive1_fk" msprop:Generator_UserParentTable="archive_person" msprop:Generator_ParentPropName="archive_personRowByarchive1_fk" />
+      <msdata:Relationship name="archive2_fk" msdata:parent="archive_person" msdata:child="link_archive" msdata:parentkey="id" msdata:childkey="secondP_id" msprop:Generator_UserChildTable="link_archive" msprop:Generator_ChildPropName="Getlink_archiveRowsByarchive2_fk" msprop:Generator_UserRelationName="archive2_fk" msprop:Generator_RelationVarName="relationarchive2_fk" msprop:Generator_UserParentTable="archive_person" msprop:Generator_ParentPropName="archive_personRowByarchive2_fk" />
+      <msdata:Relationship name="char_fk" msdata:parent="characteristics" msdata:child="link_char" msdata:parentkey="char_id" msdata:childkey="char_id" msprop:Generator_UserChildTable="link_char" msprop:Generator_ChildPropName="Getlink_charRows" msprop:Generator_UserRelationName="char_fk" msprop:Generator_RelationVarName="relationchar_fk" msprop:Generator_UserParentTable="characteristics" msprop:Generator_ParentPropName="characteristicsRow" />
+      <msdata:Relationship name="person_fk" msdata:parent="archive_person" msdata:child="link_char" msdata:parentkey="id" msdata:childkey="person_id" msprop:Generator_UserChildTable="link_char" msprop:Generator_ChildPropName="Getlink_charRows" msprop:Generator_UserRelationName="person_fk" msprop:Generator_RelationVarName="relationperson_fk" msprop:Generator_UserParentTable="archive_person" msprop:Generator_ParentPropName="archive_personRow" />
+      <msdata:Relationship name="person_req_fk" msdata:parent="archive_person" msdata:child="link_requir" msdata:parentkey="id" msdata:childkey="person_id" msprop:Generator_UserChildTable="link_requir" msprop:Generator_ChildPropName="Getlink_requirRows" msprop:Generator_UserRelationName="person_req_fk" msprop:Generator_RelationVarName="relationperson_req_fk" msprop:Generator_UserParentTable="archive_person" msprop:Generator_ParentPropName="archive_personRow" />
+      <msdata:Relationship name="req_fk" msdata:parent="characteristics" msdata:child="link_requir" msdata:parentkey="char_id" msdata:childkey="req_id" msprop:Generator_UserChildTable="link_requir" msprop:Generator_ChildPropName="Getlink_requirRows" msprop:Generator_UserRelationName="req_fk" msprop:Generator_RelationVarName="relationreq_fk" msprop:Generator_UserParentTable="characteristics" msprop:Generator_ParentPropName="characteristicsRow" />
+      <msdata:Relationship name="firstP_fk" msdata:parent="person" msdata:child="meeting" msdata:parentkey="id" msdata:childkey="firstperson_id" msprop:Generator_UserChildTable="meeting" msprop:Generator_ChildPropName="GetmeetingRowsByfirstP_fk" msprop:Generator_UserRelationName="firstP_fk" msprop:Generator_ParentPropName="personRowByfirstP_fk" msprop:Generator_RelationVarName="relationfirstP_fk" msprop:Generator_UserParentTable="person" />
+      <msdata:Relationship name="secondP_fk" msdata:parent="person" msdata:child="meeting" msdata:parentkey="id" msdata:childkey="secondperson_id" msprop:Generator_UserChildTable="meeting" msprop:Generator_ChildPropName="GetmeetingRowsBysecondP_fk" msprop:Generator_UserRelationName="secondP_fk" msprop:Generator_ParentPropName="personRowBysecondP_fk" msprop:Generator_RelationVarName="relationsecondP_fk" msprop:Generator_UserParentTable="person" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

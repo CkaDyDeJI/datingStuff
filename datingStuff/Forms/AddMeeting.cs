@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Dapper;
@@ -36,7 +29,9 @@ namespace datingStuff
         private void button1_Click(object sender, EventArgs e)
         {
             using (var conn = new MySqlConnection(Data.connString)) {
-                conn.Query ($"insert into meeting (firstperson_id, secondperson_id, place, datetime) values ({firS_}, {secS_}, '{textBox1.Text}, '{textBox2.Text}')");
+                var str =
+                    $"insert into meeting (firstperson_id, secondperson_id, place, datetime) values ({firS_}, {secS_}, '{textBox1.Text}', '{textBox2.Text}')";
+                conn.Query (str);
 
                 MessageBox.Show ("Добавлено");
             }
